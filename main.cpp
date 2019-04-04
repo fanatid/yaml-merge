@@ -35,9 +35,14 @@ int main(int argc, char* argv[]) {
     return 1;
   }
 
-  if (argc == 2 && strcmp(argv[1], "--help") == 0) {
+  if (argc == 2 && (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)) {
     std::cout << "Usage: " << argv[0] << " [FILE]..." << std::endl <<
       "Merge each file (should be YAML) and print result to standard output." << std::endl;
+    return 0;
+  }
+
+  if (argc == 2 && (strcmp(argv[1], "--version") == 0 || strcmp(argv[1], "-v") == 0)) {
+    std::cout << "yaml-merge v0.0.1" << std::endl;
     return 0;
   }
 
